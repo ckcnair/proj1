@@ -28,6 +28,8 @@ class BankAccount implements IfaceBankAccount
     }
     
     public function withdraw(Money $amount){
-        
+         //implementing withdraw money method 
+         //withdrawing decreses the balance
+        $this->balance = bcsub($this->balance,$amount);
     }
 }
