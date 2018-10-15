@@ -33,6 +33,10 @@ class BankAccount implements IfaceBankAccount
     
     public function withdraw(Money $amount){
          //implementing withdraw money method 
+        // Throwing exception when withdrawing more than closing balance
+        if($amount > $this->balance){
+            throw new Exception("Withdrawl amount larger than balance");
+        }
          //withdrawing decreses the balance
         $this->balance = bcsub($this->balance,$amount);
     }
