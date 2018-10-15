@@ -27,6 +27,8 @@ class BankAccount implements IfaceBankAccount
         //implementing transfer method
         //transfering money decreases balance from target account
         $this->balance = bcsub($this->balance,$amount);
+        //Transfering money increases balance on destination account
+        $account->balance = bcadd($amount, $account->balance);
     }
     
     public function withdraw(Money $amount){
