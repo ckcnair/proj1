@@ -24,7 +24,12 @@ class BankAccount implements IfaceBankAccount
 
     public function transfer(Money $amount, BankAccount $account)
     {
+        //Throw exception when transferring more than closing balance
+        if($amount > $this->balance){
+            throw new Exception("Withdrawl amount larger than balance");
+        }
         //implementing transfer method
+        
         //transfering money decreases balance from target account
         $this->balance = bcsub($this->balance,$amount);
         //Transfering money increases balance on destination account
